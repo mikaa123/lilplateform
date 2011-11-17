@@ -1,0 +1,16 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    lilp (0.1.1)
+      redcarpet
+    ray (0.2.0)
+    redcarpet (1.17.2)
+    watchr (0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  lilp
+  ray
+  watchr
