@@ -31,12 +31,37 @@ Ray.game "lilplateform", :size => [800, 600] do
 #  here.
   scene :menu do
 
-    @title = text "Welcome to Lilplateform", :size => 30
+    @title = text "Welcome to Lilplateform", :size => 30,
+               :at => [230, 100]
+
+    # First, we define all the options in the menu
+    @play  = text "Play", :size => 20, :at => [300, 200]
+    @exit  = text "Exit", :size => 20, :at => [300, 250]
+
+    # Let's store all the options inside an array
+    @options = [@play, @exit]
+
+    # @selected will hold the reference to the currently selected
+    # option.
+    @selected = @play
+
+    # Each scene can define events and handle them differently.
+    # Here, we want to use the keyboard to select an option.
+    [:up, :down].each do |dir|
+      on :key_press, key(dir) do
+        @selected = ( @selected == @play ? @exit : @play )
+      end
+    end
 
     # Each scene has a render method. This is where the parent
     # (Ray's game window) draws element.
     render do |win|
+      @options.each { |opt| opt.color = Ray::Color.white }
+      @selected.color = Ray::Color.yellow
+
       win.draw @title
+      win.draw @play
+      win.draw @exit
     end
   end
 
