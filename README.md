@@ -15,3 +15,14 @@ rock, let's make its development README-driven.
 ## Features (open for ideas)
 * A sprite that moves around
 * ???
+
+## Participate
+Anybody can participate. Just fork, clone, then run
+
+  bundle install
+
+Then you can modify the sources in `literate_src/`. By running the `watchr spec.watchr`, the project will be automatically compiled under the `src/` directory each time you save a file under `literate_src/`.
+
+To run the game, simply do
+
+  ruby literate_src/lilplateform.rb.md
