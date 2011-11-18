@@ -1,7 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    lilp (0.1.1)
+    lilp (0.2.2)
       redcarpet
     ray (0.2.0)
     redcarpet (1.17.2)

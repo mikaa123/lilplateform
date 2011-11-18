@@ -53,6 +53,17 @@ Ray.game "lilplateform", :size => [800, 600] do
       end
     end
 
+    # Pressing enter will validate the choice
+    on :key_press, key(:return) do
+      if @selected == @play
+        # Run the game scene
+        run_scene :game_scene
+
+      elsif @selected == @quit
+        method( exit! )
+      end
+    end
+
     # Each scene has a render method. This is where the parent
     # (Ray's game window) draws element.
     render do |win|
@@ -64,6 +75,13 @@ Ray.game "lilplateform", :size => [800, 600] do
       win.draw @exit
     end
   end
+
+#  Since the game scene is a bigger than the menu scene, let's define it
+#  in its own class. Also, to make things clearer, it's going to be
+#  defined in another file. Here, let's simply import it and register it.
+#  [[game_scene.rb]]
+require_relative 'game_scene'
+GameScene.bind(self)
 
 #  Ray will display the first item on its scene stack. In order for a
 #  scene to be displayed, it needs to be added to the stak. Let's add all
